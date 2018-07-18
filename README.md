@@ -1,6 +1,5 @@
 # Overtime Application
 
-## Requirements: documentation that employees did or did not complete overtime
-
-
-
+## To-dos
+- refactor user association integration test in post_spec.rb
+- change database to postgres
