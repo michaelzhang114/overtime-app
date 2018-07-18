@@ -11,7 +11,23 @@ describe 'navigate' do
       visit posts_path
       expect(page).to have_content(/Posts/)
     end
+  end
 
+  # mimic signing in a user, create and post, and check that post is linked to user
+  describe 'creation' do
+    it 'has a new form that can be reached' do
+      visit new_post_path
+      expect(page.status_code).to eq(200)
+    end
+
+    it 'can be created from new form page' do
+      visit new_post_path
+      fill_in 'post[date]', with: Date.today
+      fill_in 'post[rationale]', with: "Some rationale"
+      click_on "Save"
+      expect(page).to have_content("Some rationale")
+    end
 
   end
+
 end
